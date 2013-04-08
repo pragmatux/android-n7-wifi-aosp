@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+DESTDIR=debian/android-n7-wifi-aosp
+
+%:
+	dh $@ 
+
+override_dh_auto_install:
+	cp -a android $(DESTDIR)
+	(cd $(DESTDIR) && ../../restore-meta.sh <../../android.metadata)
+
+override_dh_strip:
+override_dh_makeshlibs:
+override_dh_shlibdeps:
+	# pass
