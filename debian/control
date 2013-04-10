@@ -8,6 +8,8 @@ Vcs-Git: http://git.pragmatux.org/android-n7-wifi-aosp.git
 Vcs-Browser: http://git.pragmatux.org/android-n7-wifi-aosp.git
 
 Package: android-n7-wifi-aosp
+Provides: android
+Conflicts: android
 Architecture: any
 Depends: ${misc:Depends}
 Description: AOSP Android for Nexus 7 (Wi-Fi model)
