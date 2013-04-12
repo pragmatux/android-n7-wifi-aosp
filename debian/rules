@@ -8,6 +8,9 @@ DESTDIR=debian/android-n7-wifi-aosp
 override_dh_auto_install:
 	cp -a android $(DESTDIR)
 	(cd $(DESTDIR) && ../../restore-meta.sh <../../android.metadata)
+	mkdir -p $(DESTDIR)/usr/share/android-n7-wifi-aosp
+	gzip -9 <android.metadata \
+	        >$(DESTDIR)/usr/share/android-n7-wifi-aosp/android.metadata.gz
 
 override_dh_strip:
 override_dh_makeshlibs:
