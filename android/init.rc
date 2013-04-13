@@ -509,3 +509,10 @@ service mdnsd /system/bin/mdnsd
     socket mdnsd stream 0660 mdnsr inet
     disabled
     oneshot
+
+service resolvconf /system/bin/generate-resolvconf
+    disabled
+    oneshot
+
+on property:net.dnschange=*
+    start resolvconf
